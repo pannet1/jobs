@@ -24,3 +24,9 @@ tags
 
 #time
 /vstime/
+
+#company brands
+*.png
+*.ico
+assets/*.png
+assets/*.ico
