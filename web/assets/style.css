@@ -1,0 +1,100 @@
+:root {
+    --brand-dark: rgb(255, 8, 0);    
+    --brand-light: rgb(5, 73, 133);
+    --pad: .75rem;
+    --bshadow: 0 2px 4px 0 rgba(255, 8, 0, 0.2), 0 3px 10px 0 rgba(5, 73, 133, 0.19);
+}
+body {        
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;    
+    background-color: #e9e9e9;
+}
+
+input, select {
+    padding: .2rem;
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    box-shadow: var(--bshadow);
+}
+
+a {
+color:var(--brand-light);
+text-align: right;
+}
+
+input[type=submit] {    
+    padding: var(--pad);
+    color: white;
+    border-radius: 2.5rem;
+    background-color: var(--brand-light);
+}
+.fv {        
+    padding: var(--pad);    
+    margin: 0 auto;
+    width: 40rem;    
+    
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-start;
+    background-color: white;
+    box-shadow: var(--bshadow);
+}
+
+.fv > input, .fv > select {
+    flex: 0 0 auto;
+}
+
+.container {    
+    padding: var(--pad);
+    background-color: white;
+    margin:0 auto;            
+    width: 100%;
+    max-width: 80rem;
+    box-shadow: var(--bshadow);
+}
+.cards {    
+    margin: 0;
+    padding: 0;
+    display: flex;   
+    flex-wrap: wrap;             
+    justify-content:center;    
+}
+
+.card {               
+    margin: 0 var(--pad) var(--pad) 0;
+    flex: 0 0 calc(.75rem * 13);    
+    padding: var(--pad);       
+    border-radius: 4px;
+    box-shadow: var(--bshadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fv-item {
+    margin-top: var(--pad);
+    flex: 0 0 auto;
+}
+.card__title, .card__url {
+    margin: 0;
+    color: var(--brand-light);
+    text-decoration: none;
+}
+
+.msg {
+    color: var(--brand-dark);
+    margin-bottom: var(--pad);
+}
+
+.input-err {
+    border-color: var(--brand-dark);
+    background-color:#ffacac
+}
+
+.float-right {
+    float:right;
+    clear: both;
+}

@@ -1,0 +1,25 @@
+# Logs
+log/
+*.log
+
+#lock
+lock
+*.lock
+
+#temp dirs
+tmp/
+temp/
+
+#tests
+tests/
+
+#ctag
+tags
+
+# Dependency directories
+vendor/
+
+#time
+vstime/
+
+#images
