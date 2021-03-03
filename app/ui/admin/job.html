@@ -1,0 +1,51 @@
+  <form class="fv" method="POST" action="job">
+        <h2>{{ @title}}</h2>                
+        <include href="./msg.htm"/>
+        <label for="position">Position</label>
+        <input name="position" type="text" required>
+        <label for="cat"><a href="category">Create</a> | Category</label>
+        <select name="cat">
+            <option value="0">-- Category --</option>    
+            <repeat group="{{ @category }}" value="{{ @c }}">
+                <check if="{{ @POST.cat==@c.id }}">
+                <true>
+                <option value="{{ @c.id}}" selected=selected>{{ @c.name }}</option> 
+                </true>
+                <false>
+                <option value="{{ @c.id }}">{{ @c.name }}</option>
+                </false>
+                </check>       
+            </repeat>              
+        </select><br />
+        <label for="type">Type</label>    
+        <select name="type">
+            <repeat group="{{ @type }}" key="{{ @ikey }}" value="{{ @t }}">
+                <check if="{{ @POST.type==@ikey }}">
+                <true>
+                <option value="{{ @ikey}}" selected=selected>{{ @t }}</option>
+                </true>
+                <false>
+                <option value="{{ @ikey}}">{{ @t }}</option>
+                </false>
+                </check>       
+            </repeat>   
+        </select><br />
+        <label for="loc">Location</label>
+        <select name="loc">
+            <option value="0">-- Location --</option>
+            <repeat group="{{ @location }}" value="{{ @l }}">
+                <check if="{{ @GET.loc==@l.id }}">
+                <true>
+                <option value="{{ @l.id}}" selected=selected>{{ @l.name }}</option>
+                </true>
+                <false>
+                <option value="{{ @l.id }}">{{ @l.name }}</option>
+                </false>
+                </check>       
+            </repeat>    
+        </select>                   
+        <label for="till">Validity</label> 
+        <carbox-picker></carbox-picker>
+        <input type="submit" value="Save">
+    </form>
+

@@ -1,0 +1,80 @@
+<div class="container">    
+    <form id="search-form" action="/">        
+        <label for="search" aria-hidden="true"></label>
+        <input id="search-input" type="text"name="search" value="{{ @GET.search }}" placeholder="Search">
+        <select name="cat" onchange="get()">            
+            <option value="0">-- Category --</option>    
+            <repeat group="{{ @category }}" value="{{ @c }}">
+                <check if="{{ @GET.cat==@c.id }}">
+                <true>
+                <option value="{{ @c.id}}" selected=selected>{{ @c.name }}</option>
+                </true>
+                <false>
+                <option value="{{ @c.id }}">{{ @c.name }}</option>
+                </false>
+                </check>       
+            </repeat>              
+        </select>
+        <select name="type" onchange="get()">                    
+            <repeat group="{{ @type }}" key="{{ @ikey }}" value="{{ @t }}">
+                <check if="{{ @GET.type==@ikey }}">
+                <true>
+                <option value="{{ @ikey}}" selected=selected>{{ @t }}</option>
+                </true>
+                <false>
+                <option value="{{ @ikey}}">{{ @t }}</option>
+                </false>
+                </check>       
+            </repeat>   
+        </select>
+        <select name="loc" onchange="get()">            
+            <option value="0">-- Location --</option>
+            <repeat group="{{ @location }}" value="{{ @l }}">
+                <check if="{{ @GET.loc==@l.id }}">
+                <true>
+                <option value="{{ @l.id}}" selected=selected>{{ @l.name }}</option>
+                </true>
+                <false>
+                <option value="{{ @l.id }}">{{ @l.name }}</option>
+                </false>
+                </check>       
+            </repeat>        
+        </select>                    
+    </form>
+    <div id="cards" class="cards">
+        <repeat group="{{ @result }}" value="{{ @j}}">
+            <div class="card">                
+                <h3 class="card__title">{{  @j.position }}</h3>
+                <div class="card__body fv-item">
+                    {{  @type[@j.type] }}   <br>
+                    {{  @j.loc }}   <br>                                
+                <a class="card__url" href="job/details">More Details --></a>
+                </div>
+            </div>            
+        </repeat>    
+    </div>
+</div>
+<script>
+
+function get() {
+    document.getElementById("search-form").submit()
+}    
+
+    let input = document.getElementById("search-input");
+    // Init a timeout variable to be used below
+    let timeout = null;
+
+    // Listen for keystroke events
+    input.addEventListener('keyup', function (e) {
+    // Clear the timeout if it has already been set.
+    // This will prevent the previous task from executing
+    // if it has been less than <MILLISECONDS>
+    clearTimeout(timeout);
+
+    // Make a new timeout set to go off in 1000ms (1 second)
+    timeout = setTimeout(function () {        
+            get();
+    }, 1000);
+});
+
+</script>

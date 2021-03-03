@@ -1,0 +1,7 @@
+<form class="fv" method="POST" action="category">
+    <h2>{{ @title}}</h2>                
+    <include href="./msg.htm"/>
+    <label for="name">Category Name</label>                                   
+        <input name="name" type="text" class="{{ @category.name ? 'input-err' : '' }}">
+    <input type="submit" value="Save">
+</form>

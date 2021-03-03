@@ -1,0 +1,23 @@
+<div class="container">       
+    <h2><a href="job">Create</a> | {{ @title }}</h2> 
+    <table>    
+        <tr>
+            <th>Position</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Updated On</th>
+        </tr>
+        <repeat group="{{ @job }}" value="{{ @j}}">        
+        <tr>
+            <td>{{  @j.position }}</td>        
+            <td>{{  @type[@j.type] }}</td>          
+            <repeat group="{{ @location }}" value="{{ @l }}">
+            <check if="{{ @j.loc==@l.id }}">            
+                <td>{{  @l.name }}</td>                                 
+            </check>                   
+            </repeat>            
+            <td>{{ date("d-M-y", strtotime(@j.timestamp)) }}</td>
+        </tr>
+         </repeat>       
+    </table>
+</div>

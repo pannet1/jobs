@@ -1,0 +1,20 @@
+
+    <form class="fv" action="login" method="post">
+      <h2>{{ @title}}</h2>                
+      <include href="./msg.htm"/>    
+      <label for="email">Email</label>
+      <input type="text" name="email" value="{{ @POST.email }}" required><br />
+      <label for="password">Password</label>
+      <input type="password" name="password" value="{{ @POST.email }}" required><br />
+      <check if="{{ isset(@msg) }}">
+        <label for="captcha"><small>CAPTCHA</small></label>
+        <img src="{{ @captcha }}" title="captcha" />
+        <input id="captcha" name="captcha" type="text" /><br />
+      </check>
+      <input type="submit" value="Submit">
+      <span>No account yet? <a class="link" href="register">Register</a></span> 
+    </form>   
+  
+  
+  
+  
