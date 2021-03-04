@@ -13,7 +13,7 @@ final class admin extends Base_Controller {
 	}
 
 	public function index(\Base $f3, array $args = []): void {
-		$f3->reroute('admin/login');
+		 $f3->reroute('admin/login');		
 	}
 
 	// JOB methods
@@ -43,6 +43,7 @@ final class admin extends Base_Controller {
   	public function get_category (\Base $f3, array $args = []): void {			
 		echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm'); 
 	}
+
    // post form
 	public function post_category(\Base $f3, array $args = []): void {		
 		$mapper = new \model\Category();		

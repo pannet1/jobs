@@ -7,6 +7,11 @@ final class main extends Base_Controller {
 		$this->tablefind('category');
 		$this->tablefind('location');				
 	}
+
+	public function index(\Base $f3, array $args = []): void {			
+		$f3->set('content', 'index.html');		
+		echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm'); 
+	}
 	
   // home page
 	public function get_home(\Base $f3, array $args = []): void {		
