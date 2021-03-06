@@ -1,5 +1,5 @@
 <?php
-DEFINE("PROJECT_ROOT_DIR", __DIR__.'/../');
+DEFINE("PROJECT_ROOT_DIR", __DIR__.'/');
 
 /*
  * The purpose of this file is to have one central file hold all the requirements

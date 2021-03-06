@@ -6,10 +6,11 @@
             <th>Type</th>
             <th>Location</th>
             <th>Updated On</th>
+            <th>Status</th>
         </tr>
         <repeat group="{{ @job }}" value="{{ @j}}">        
         <tr>
-            <td>{{  @j.position }}</td>        
+            <td><a href="{{ 'detail/'.@j.id  }}">{{  @j.position }}</a></td>        
             <td>{{  @type[@j.type] }}</td>          
             <repeat group="{{ @location }}" value="{{ @l }}">
             <check if="{{ @j.loc==@l.id }}">            
@@ -17,6 +18,7 @@
             </check>                   
             </repeat>            
             <td>{{ date("d-M-y", strtotime(@j.timestamp)) }}</td>
+            <td>{{ @status[@j.status] }}
         </tr>
          </repeat>       
     </table>

@@ -3,23 +3,25 @@ log/
 *.log
 
 #lock
-lock
-*.lock
+web/lock
+web/*.lock
 
 #temp dirs
 tmp/
 temp/
 
 #tests
-tests/
+web/tests/
 
 #ctag
 tags
 
 # Dependency directories
-vendor/
+web/vendor/
 
 #time
-vstime/
+web/vstime/
 
 #images
+web/assets/*.ico
+web/assets/*.png

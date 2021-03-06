@@ -36,7 +36,12 @@ final class admin extends Base_Controller {
 		$job->loc = $get('POST.loc');		
 		$job->till = $get('POST.till');
 		$job->save();				
-  	}
+    }
+
+    public function get_detail(\Base $f3, array $args = []): void {			
+        $id = $arg['id'];
+        echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm');    
+    }
 
 	// CATEGORY
 	// get form

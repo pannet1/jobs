@@ -21,7 +21,7 @@ abstract class Base_Controller {
 		); 		
 		$f3->set('db',$db);
 		$f3->set('type',array( "-- Job Type --","Full Time","Part Time"));    		
-		
+	    $f3->set('status',array("Draft","Published"));
 		$this->validation = \Validation::instance();		
 		$this->validation->onError(function($text,$key) {
 			// f3 not available in this context ?

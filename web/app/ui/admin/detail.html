@@ -1,0 +1,8 @@
+  <form class="fv" method="POST" action="../detail">
+        <h2>{{ @title}}</h2>                
+        <include href="./msg.htm"/>
+        <textarea id="md" cols="50" name='md'>{{ @POST.md }}</textarea>
+        <input type="hidden" value="{{ @POST.job_id }}">
+        <input type="submit" value="Save">
+    </form>
+
