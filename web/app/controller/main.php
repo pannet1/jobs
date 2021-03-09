@@ -1,20 +1,27 @@
 <?php
 namespace controller;
 
-final class main extends Base_Controller {
+final class main extends Base_Controller {	
 
-	public function beforeroute(\Base $f3, array $args = []): void {			
+	public function beforeroute(\Base $f3, array $args = []){	
 		$this->tablefind('category');
-		$this->tablefind('location');				
+		$this->tablefind('location');		
+		$f3->set('content', $args['module'].'/'.$args['func'].'.html');		
+		$f3->set('title',ucfirst($args['func']));				
 	}
 
-	public function index(\Base $f3, array $args = []): void {			
+	public function get_home(\Base $f3, array $args = []) {			
 		$f3->set('content', 'index.html');		
+		echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm'); 
+	}
+
+	public function get_detail(\Base $f3, array $args = []) {			
+		$f3->set('content', $args['func'].'/'.$args['id'].'.html');				
 		echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm'); 
 	}
 	
   // home page
-	public function get_home(\Base $f3, array $args = []): void {		
+	public function get_index(\Base $f3, array $args = []) {		
 		$f3->set('title', 'Home');		
 		$search = $f3->get('GET.search');
 		$cat = $f3->get('GET.cat');		

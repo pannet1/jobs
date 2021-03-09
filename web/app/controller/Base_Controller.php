@@ -13,7 +13,7 @@ namespace controller;
 abstract class Base_Controller {	
 	protected $validation;
 	
-	function __construct(\Base $f3) {		
+	function __construct(\Base $f3, array $args = []) {			
 		$db=new \DB\SQL(
 			$f3->get('DBDNS') . $f3->get('DBNAME'),
 			$f3->get('DBUSER'),
@@ -49,7 +49,7 @@ abstract class Base_Controller {
 	 * @param \Base $f3
 	 * @return bool
 	 */
-	public function beforeroute(\Base $f3) {		
+	public function beforeroute(\Base $f3, array $args = []){		
 		if ($f3->get('POST')) {			
 			$post = Xss_Filter::filter('POST');		
 			$f3->set('POST',$post);			

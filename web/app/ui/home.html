@@ -1,5 +1,5 @@
 <div class="container">    
-    <form id="search-form" action="/">        
+    <form id="search-form" action="/main">        
         <label for="search" aria-hidden="true"></label>
         <input id="search-input" type="text"name="search" value="{{ @GET.search }}" placeholder="Search">
         <select name="cat" onchange="get()">            
@@ -48,7 +48,7 @@
                 <div class="card__body fv-item">
                     {{  @type[@j.type] }}   <br>
                     {{  @j.loc }}   <br>                                
-                <a class="card__url" href="job/details">More Details --></a>
+                <a class="card__url" href="{{ 'main/detail/1' }}">More Details --></a>
                 </div>
             </div>            
         </repeat>    

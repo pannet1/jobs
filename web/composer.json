@@ -4,6 +4,8 @@
         "n0nag0n/fatfree-xss-filter": "^1.0",
         "ikkez/f3-opauth": "^1.0",
         "ikkez/f3-validation-engine": "^1.7",
-        "ikkez/f3-cortex": "^1.7"
+        "ikkez/f3-cortex": "^1.7",
+        "erusev/parsedown": "^1.7",
+        "ikkez/f3-fal": "^0.7.2"
     }
 }

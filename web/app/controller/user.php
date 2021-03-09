@@ -3,18 +3,18 @@ namespace controller;
 
 final class user extends Base_Controller {
 
-	public function beforeroute(\Base $f3, array $args = []): void {			
+	public function beforeroute(\Base $f3, array $args = []){			
 		$this->tablefind('category');
 		$this->tablefind('location');		
 		$f3->set('content', $args['module'].'/'.$args['func'].'.html');		
 		$f3->set('title',ucfirst($args['func']));				
 	}
 
-	public function index(\Base $f3, array $args = []): void {		
+	public function get_index(\Base $f3, array $args = []) {		
 		$f3->reroute('user/login');
 	}
 
-	public function get_register(\Base $f3, array $args = []): void {		
+	public function get_register(\Base $f3, array $args = []) {		
 		if ($f3->get('msg')) {
 		  $img=new \Image;
 		  $f3->set('captcha',$f3->base64(
@@ -24,7 +24,7 @@ final class user extends Base_Controller {
 		echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm');
 	  }
 	
-	public function post_register(\Base $f3, array $args = []): void {	
+	public function post_register(\Base $f3, array $args = []) {	
 		$mapper = new \model\User();		
 		$mapper->name = $f3->get('POST.name');		
 		$mapper->email = $f3->get('POST.email');		
@@ -41,7 +41,7 @@ final class user extends Base_Controller {
 	      }	
 	}
 	
-   public function get_login(\Base $f3, array $args = []): void {		
+   public function get_login(\Base $f3, array $args = []) {		
 	 if ($f3->get('msg')) {
 	  $img=new \Image;
 	  $f3->set('captcha',$f3->base64(
@@ -51,7 +51,7 @@ final class user extends Base_Controller {
 	echo \Template::instance()->render($f3->AJAX ? $f3->content : 'layout.htm'); 
   }
 
-  function post_login (\Base $f3, array $args = []): void {			
+  function post_login (\Base $f3, array $args = []) {			
 	$captcha=$f3->get('SESSION.captcha');
 	if ($captcha && strtoupper($f3->get('POST.captcha'))!=$captcha)	{
 		$f3->set('msg','Invalid CAPTCHA code');	 			
